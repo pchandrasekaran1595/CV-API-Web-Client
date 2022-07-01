@@ -55,8 +55,8 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/classify",
-                // url : "https://pcs-cv-api.herokuapp.com/classify",
+                // url : "http://127.0.0.1:10000/classify",
+                url : "https://pcs-cv-api.herokuapp.com/classify",
                 data : data,
                 dataType: "json",
                 contentType: "application/json",
@@ -91,8 +91,8 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/detect",
-                // url : "https://pcs-cv-api.herokuapp.com/detect",
+                // url : "http://127.0.0.1:10000/detect",
+                url : "https://pcs-cv-api.herokuapp.com/detect",
                 data : data,
                 dataType: "json",
                 contentType: "application/json",
@@ -144,8 +144,8 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/segment",
-                // url : "https://pcs-cv-api.herokuapp.com/segment",
+                // url : "http://127.0.0.1:10000/segment",
+                url : "https://pcs-cv-api.herokuapp.com/segment",
                 data : data,
                 dataType: "json",
                 contentType: "application/json",
