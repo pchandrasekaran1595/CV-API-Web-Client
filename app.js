@@ -46,23 +46,26 @@ main = () => {
             alert("Please Upload an Image First")
         }
         else{
+            
+            classify.disabled = true
 
-            let data = {
-                data : JSON.stringify({
+            let data = JSON.stringify({
                     imageData : hidden_canvas_data,
-                }),
-            }
+                })
 
             $.ajax({
                 type : "POST",
-                // url : "http://127.0.0.1:10000/classify/",
-                url : "https://pcs-cv-api.herokuapp.com/classify/",
+                url : "http://127.0.0.1:10000/classify",
+                // url : "https://pcs-cv-api.herokuapp.com/classify",
                 data : data,
+                dataType: "json",
+                contentType: "application/json",
                 success : (response) => {
                     console.log(" ---------- ")
                     console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)
                     console.log(" ---------- ")
-
+                    
+                    classify.disabled = false
                     output.value = response["label"]
                 },
                 error : (response) => {
@@ -80,17 +83,19 @@ main = () => {
         }
         else{
 
-            let data = {
-                data : JSON.stringify({
+            detect.disabled = true
+
+            let data = JSON.stringify({
                     imageData : hidden_canvas_data,
-                }),
-            }
+                })
 
             $.ajax({
                 type : "POST",
-                // url : "http://127.0.0.1:10000/detect/",
-                url : "https://pcs-cv-api.herokuapp.com/detect/",
+                url : "http://127.0.0.1:10000/detect",
+                // url : "https://pcs-cv-api.herokuapp.com/detect",
                 data : data,
+                dataType: "json",
+                contentType: "application/json",
                 success : (response) => {
                     console.log(" ---------- ")
                     console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)
@@ -112,6 +117,8 @@ main = () => {
                     preview_ctx.lineWidth = "2"
                     preview_ctx.rect(preview_x1, preview_y1, preview_x2 - preview_x1, preview_y2 - preview_y1)
                     preview_ctx.stroke()
+
+                    detect.disabled = false
                    
                 },
                 error : (response) => {
@@ -128,18 +135,20 @@ main = () => {
             alert("Please Upload an Image First")
         }
         else{
-
-            let data = {
-                data : JSON.stringify({
+            
+            segment.disabled = true
+            
+            let data = JSON.stringify({
                     imageData : hidden_canvas_data,
-                }),
-            }
+                })
 
             $.ajax({
                 type : "POST",
-                // url : "http://127.0.0.1:10000/segment/",
-                url : "https://pcs-cv-api.herokuapp.com/segment/",
+                url : "http://127.0.0.1:10000/segment",
+                // url : "https://pcs-cv-api.herokuapp.com/segment",
                 data : data,
+                dataType: "json",
+                contentType: "application/json",
                 success : (response) => {
                     console.log(" ---------- ")
                     console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)
@@ -153,6 +162,8 @@ main = () => {
                         preview_ctx.drawImage(preview_image, 0, 0, preview_w, preview_h)
                         hidden_ctx.drawImage(hidden_image, 0, 0, hidden_canvas.width, hidden_canvas.height)
                     }
+
+                    segment.disabled = false
                 },
                 error : (response) => {
                     console.log(" ---------- ")
