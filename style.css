@@ -1,0 +1,33 @@
+body{
+    background-color: lightblue;
+}
+
+h2{
+    color: goldenrod;
+    border-top: 10px solid lightblue;
+}
+
+textarea{
+   font-family: monospace;
+   font-size: 24px;
+   border: 10px solid lightblue;
+}
+
+.btn{
+    width: 12.5%;
+}
+
+#image_input{
+    background-color: gray;
+    border: 10px solid lightblue;
+}
+
+#preview_canvas{
+    background-color: gray;
+    border: 10px solid lightblue;
+}
+
+#reset{
+    background-color: orange;
+    border: 1px solid orange;
+}

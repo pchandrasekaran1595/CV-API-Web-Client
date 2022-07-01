@@ -1,0 +1,1 @@
+start /MAX cmd /k "cls && title HTTP Server && py -3.9 -m http.server 9000"
