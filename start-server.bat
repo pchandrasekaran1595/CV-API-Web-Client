@@ -1,1 +1,1 @@
-start /MAX cmd /k "cls && title HTTP Webpage Server && py -3.9 -m http.server 10001"
+start /MAX cmd /k "cls && title HTTP Webpage Server && python -m http.server 10001"
